@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 
-document.addEventListener("DOMContentLoaded", ()=>{
+/*document.addEventListener("DOMContentLoaded", ()=>{
     let usuario = localStorage.getItem('user');
      if (usuario === null){
       alert("No hay nadie loggeado");
@@ -25,6 +25,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
     }
 
-});
+});*/
 
 
