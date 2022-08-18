@@ -16,15 +16,32 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 
-/*document.addEventListener("DOMContentLoaded", ()=>{
+document.addEventListener("DOMContentLoaded", ()=>{
     let usuario = localStorage.getItem('user');
+
      if (usuario === null){
       alert("No hay nadie loggeado");
       location.href="login.html";
     }else{
-
+        
     }
 
-});*/
 
+    document.getElementById('cerrar').addEventListener('click',()=>{
+        localStorage.removeItem('user');
+        alert("Cerrando Sesion");
+        location.href="login.html";
+    })
+
+
+
+       
+        
+
+
+    
+
+
+
+});
 
