@@ -27,5 +27,4 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
 });
 
-// no logro que se salga cuando refrescvo, si copio y pego la url si pero si cierro ventana no
 
