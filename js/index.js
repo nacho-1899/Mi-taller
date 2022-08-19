@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
      if (usuario == null){
-      alert("No hay nadie loggeado");
+      alert("No hay nadie logeado");
       location.href="login.html";
     }
     document.getElementById("autos").addEventListener("click", function() {
