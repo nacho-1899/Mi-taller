@@ -9,9 +9,9 @@ function login(){
         document.getElementById("parrafo").innerHTML = "Ingrese su Email";
         document.getElementById("parrafo2").innerHTML = "Ingrese su Contraseña";
     }else{
-       
-        location.href="index.html";
         localStorage.setItem('user',usuario);
+        location.href="index.html";
+        
     }
 }
 

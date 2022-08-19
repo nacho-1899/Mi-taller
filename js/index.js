@@ -1,4 +1,15 @@
+
+
+
 document.addEventListener("DOMContentLoaded", function(){
+
+    let usuario = localStorage.getItem("user");
+
+
+     if (usuario == null){
+      alert("No hay nadie loggeado");
+      location.href="login.html";
+    }
     document.getElementById("autos").addEventListener("click", function() {
         localStorage.setItem("catID", 101);
         window.location = "products.html"
@@ -11,37 +22,16 @@ document.addEventListener("DOMContentLoaded", function(){
         localStorage.setItem("catID", 103);
         window.location = "products.html"
     });
-});
 
-
-
-
-document.addEventListener("DOMContentLoaded", ()=>{
-    let usuario = localStorage.getItem('user');
-
-     if (usuario === null){
-      alert("No hay nadie loggeado");
-      location.href="login.html";
-    }else{
-        
-    }
-
-
-    document.getElementById('cerrar').addEventListener('click',()=>{
-        localStorage.removeItem('user');
+    document.getElementById("cerrar").addEventListener("click", function() {
         alert("Cerrando Sesion");
-        location.href="login.html";
-    })
-
-
-
-       
-        
-
-
-    
-
-
-
+        localStorage.clear();
+        window.location.href="login.html";
+    });
 });
+
+
+
+
+
 
