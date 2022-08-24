@@ -3,13 +3,16 @@
 
 document.addEventListener("DOMContentLoaded", function(){
 
-    let usuario = localStorage.getItem("user");
+    let usuario = localStorage.getItem("name");
 
 
      if (usuario == null){
       alert("No hay nadie logeado");
       location.href="login.html";
+    }else{
+        document.getElementById("usuario").innerHTML = usuario ;
     }
+
     document.getElementById("autos").addEventListener("click", function() {
         localStorage.setItem("catID", 101);
         window.location = "products.html"
