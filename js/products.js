@@ -34,7 +34,9 @@ function showProductList (array){
 
 
 document.addEventListener("DOMContentLoaded", function(e){
-getJSONData(PRODUCTS_URL).then(function(resultObj){
+    let id = localStorage.getItem("catID");
+getJSONData(PRODUCTS_URL + id +".json").then(function(resultObj){
+
         if (resultObj.status === "ok")
         {
             productArray = resultObj.data;

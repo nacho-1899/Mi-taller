@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", function(){
     }else{
         document.getElementById("usuario").innerHTML = usuario ;
     }
-
     document.getElementById("autos").addEventListener("click", function() {
         localStorage.setItem("catID", 101);
         window.location = "products.html"
