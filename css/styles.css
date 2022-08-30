@@ -215,7 +215,13 @@ h2{
   width:3cm ;
   margin-left: 44%;
   font-family: 'Times New Roman', Times, serif;
-
+}
+.filtrar{
+  text-align: right;
+}
+.redondeadonorelieve {
+  border-radius: 5px;
+  border: 1px solid #39c;
 }
 
 
