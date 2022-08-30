@@ -1,11 +1,10 @@
-
 let product = [];
 
 function showProductList (array){
     let htmlContentToAppend = "";
 
-    for(let i = 0; i < array.products.length; i++){ 
-        let category = array.products[i];
+    for(let i = 0; i < array.length; i++){ 
+        let category = array[i];
         htmlContentToAppend += `
         <div class="list-group-item list-group-item-action">
             <div class="row">
@@ -30,19 +29,47 @@ function showProductList (array){
     }
 }
 
+function filtrar(array){
+    let min = parseInt(document.getElementById('min').value);
+    let max = parseInt(document.getElementById('max').value);
+    let listaFiltrada = productArray.filter(producto=> producto.cost >= min && producto.cost <= max );
+    showProductList (listaFiltrada);
+
+}
+
+function cantidad(){
+    let result =[];
+    result = productArray.sort(function(a, b) {
+    let aCount = parseInt(a.soldCount);
+    let bCount = parseInt(b.soldCount);
+    if ( aCount > bCount ){ return -1; }
+    if ( aCount < bCount ){ return 1; }
+    showProductList(result);
+
+    });
+}
 
 
 
 document.addEventListener("DOMContentLoaded", function(e){
-    let id = localStorage.getItem("catID");
+let id = localStorage.getItem("catID");
 getJSONData(PRODUCTS_URL + id +".json").then(function(resultObj){
 
         if (resultObj.status === "ok")
         {
-            productArray = resultObj.data;
+            productArray = resultObj.data.products;
             showProductList(productArray);
         }
     });
+    document.getElementById('filtrar').addEventListener('click',()=>{
+        filtrar();
+    });
+    document.getElementById('porcantidad').addEventListener('click',()=>{
+        cantidad();
+
+
+
+    })
 });
 
 
