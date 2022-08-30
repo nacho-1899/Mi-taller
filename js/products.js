@@ -37,7 +37,7 @@ function filtrar(array){
 
 }
 
-function cantidad(){
+/*function cantidad(){
     let result =[];
     result = productArray.sort(function(a, b) {
     let aCount = parseInt(a.soldCount);
@@ -48,10 +48,22 @@ function cantidad(){
 
     });
 }
+*/
 
 
 
 document.addEventListener("DOMContentLoaded", function(e){
+    // si no hay nadie logeado
+    let usuario = localStorage.getItem("name");
+
+
+    if (usuario == null){
+     alert("No hay nadie logeado");
+     location.href="login.html";
+   }else{
+       document.getElementById("usuario").innerHTML = usuario ;
+   }
+
 let id = localStorage.getItem("catID");
 getJSONData(PRODUCTS_URL + id +".json").then(function(resultObj){
 
@@ -66,10 +78,13 @@ getJSONData(PRODUCTS_URL + id +".json").then(function(resultObj){
     });
     document.getElementById('porcantidad').addEventListener('click',()=>{
         cantidad();
-
-
-
     })
+    document.getElementById('cerrar').addEventListener('click',()=>{
+        alert("Cerrando Sesion");
+        localStorage.clear();
+        window.location.href="login.html";
+    })
+    //fin cierre de sesion
 });
 
 
