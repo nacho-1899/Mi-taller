@@ -1,5 +1,6 @@
 let product = [];
 
+
 function showProductList (array){
     let htmlContentToAppend = "";
 
@@ -37,19 +38,20 @@ function filtrar(array){
 
 }
 
-/*function cantidad(){
-    let result =[];
-    result = productArray.sort(function(a, b) {
-    let aCount = parseInt(a.soldCount);
-    let bCount = parseInt(b.soldCount);
-    if ( aCount > bCount ){ return -1; }
-    if ( aCount < bCount ){ return 1; }
+function cantidad(){
+    let result = productArray.sort((a, b) => b.soldCount- a.soldCount); 
+    showProductList(result);
+}
+function desenente(){
+    let result = productArray.sort((a, b) => b.cost- a.cost); 
+    showProductList(result);
+}
+function ascendente(){
+    let result = productArray.sort((a, b) =>a.cost- b.cost); 
     showProductList(result);
 
-    });
-}
-*/
 
+}
 
 
 document.addEventListener("DOMContentLoaded", function(e){
@@ -64,8 +66,8 @@ document.addEventListener("DOMContentLoaded", function(e){
        document.getElementById("usuario").innerHTML = usuario ;
    }
 
-let id = localStorage.getItem("catID");
-getJSONData(PRODUCTS_URL + id +".json").then(function(resultObj){
+    let id = localStorage.getItem("catID");
+    getJSONData(PRODUCTS_URL + id +".json").then(function(resultObj){
 
         if (resultObj.status === "ok")
         {
@@ -76,8 +78,14 @@ getJSONData(PRODUCTS_URL + id +".json").then(function(resultObj){
     document.getElementById('filtrar').addEventListener('click',()=>{
         filtrar();
     });
-    document.getElementById('porcantidad').addEventListener('click',()=>{
+    document.getElementById('masvendidos').addEventListener('click',()=>{
         cantidad();
+    })
+    document.getElementById('ascen').addEventListener('click',()=>{
+        ascendente();
+    })
+    document.getElementById('descen').addEventListener('click',()=>{
+        desenente();
     })
     document.getElementById('cerrar').addEventListener('click',()=>{
         alert("Cerrando Sesion");
@@ -86,5 +94,4 @@ getJSONData(PRODUCTS_URL + id +".json").then(function(resultObj){
     })
     //fin cierre de sesion
 });
-
-
+    
