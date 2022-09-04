@@ -29,29 +29,32 @@ function showProductList (array){
         document.getElementById("cat-list-container").innerHTML = htmlContentToAppend; 
     }
 }
-
-function filtrar(array){
+// funciones de filtro
+function filtrar(){
     let min = parseInt(document.getElementById('min').value);
     let max = parseInt(document.getElementById('max').value);
     let listaFiltrada = productArray.filter(producto=> producto.cost >= min && producto.cost <= max );
-    showProductList (listaFiltrada);
-
+    showProductList(listaFiltrada);
 }
+    
 
+
+// funciones de ordenes por cantidad y precio
 function cantidad(){
     let result = productArray.sort((a, b) => b.soldCount- a.soldCount); 
     showProductList(result);
 }
 function desenente(){
-    let result = productArray.sort((a, b) => b.cost- a.cost); 
+    let result= productArray.sort((a, b) => b.cost- a.cost); 
     showProductList(result);
 }
 function ascendente(){
     let result = productArray.sort((a, b) =>a.cost- b.cost); 
     showProductList(result);
-
-
 }
+
+
+
 
 
 document.addEventListener("DOMContentLoaded", function(e){
@@ -65,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function(e){
    }else{
        document.getElementById("usuario").innerHTML = usuario ;
    }
-
+ //agarra catid del localstorage y ya lo une a la url para abrir categorias
     let id = localStorage.getItem("catID");
     getJSONData(PRODUCTS_URL + id +".json").then(function(resultObj){
 
