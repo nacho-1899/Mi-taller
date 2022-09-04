@@ -2,16 +2,15 @@
 
 
 document.addEventListener("DOMContentLoaded", function(){
-
+// pregunto si no hay nadie logeado y si hay imprimo alado de cerrar sesion
     let usuario = localStorage.getItem("name");
-
-
-     if (usuario == null){
+    if (usuario == null){
       alert("No hay nadie logeado");
       location.href="login.html";
     }else{
         document.getElementById("usuario").innerHTML = usuario ;
     }
+
     document.getElementById("autos").addEventListener("click", function() {
         localStorage.setItem("catID", 101);
         window.location = "products.html"
