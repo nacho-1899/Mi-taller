@@ -34,12 +34,14 @@ function sortCategories(criteria, array){
 
     return result;
 }
-
+//creo funcion para obtener el id del producto mismo
 function setCatID(id) {
     localStorage.setItem("catID", id);
     window.location = "products.html"
 }
-
+/**
+ Le agegrege el onclik para que ejecute la funcion setCatID.
+ */
 function showCategoriesList(){
 
     let htmlContentToAppend = "";

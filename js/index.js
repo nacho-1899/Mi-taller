@@ -2,14 +2,18 @@
 
 
 document.addEventListener("DOMContentLoaded", function(){
+    
+let usuario = localStorage.getItem("name");
+if (usuario == null){
+    alert("No hay nadie logeado");
+    location.href="login.html";
+}else{
+    document.getElementById('usuario').innerHTML = usuario;
+}
+
 // pregunto si no hay nadie logeado y si hay imprimo alado de cerrar sesion
-    let usuario = localStorage.getItem("name");
-    if (usuario == null){
-      alert("No hay nadie logeado");
-      location.href="login.html";
-    }else{
-        document.getElementById("usuario").innerHTML = usuario ;
-    }
+
+
 
     document.getElementById("autos").addEventListener("click", function() {
         localStorage.setItem("catID", 101);
@@ -23,6 +27,11 @@ document.addEventListener("DOMContentLoaded", function(){
         localStorage.setItem("catID", 103);
         window.location = "products.html"
     });
+    document.getElementById("50921").addEventListener("click", function() {
+        localStorage.setItem("prodID", 50921);
+        window.location = "product-info.html"
+    });
+
 
     document.getElementById("cerrar").addEventListener("click", function() {
         alert("Cerrando Sesion");

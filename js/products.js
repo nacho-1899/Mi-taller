@@ -1,13 +1,17 @@
 let product = [];
 
-
+// funcion obtiene el id del cada producto
+function setProdID(id){
+    localStorage.setItem("proID", id);
+    window.location = "product-info.html"
+}
 function showProductList (array){
     let htmlContentToAppend = "";
 
     for(let i = 0; i < array.length; i++){ 
         let category = array[i];
         htmlContentToAppend += `
-        <div class="list-group-item list-group-item-action">
+        <div onclick =setProdID(${category.id}) class="list-group-item list-group-item-action" id=`+category.id+`>
             <div class="row">
                 <div class="col-3">
                     <img src="` + category.image + `" alt="product image" class="img-thumbnail">
@@ -26,7 +30,7 @@ function showProductList (array){
             </div>
         </div>
         `
-        document.getElementById("cat-list-container").innerHTML = htmlContentToAppend; 
+        document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;
     }
 }
 // funciones de filtro
@@ -35,6 +39,8 @@ function filtrar(){
     let max = parseInt(document.getElementById('max').value);
     let listaFiltrada = productArray.filter(producto=> producto.cost >= min && producto.cost <= max );
     showProductList(listaFiltrada);
+
+
 }
     
 
