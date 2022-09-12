@@ -208,30 +208,21 @@ h2{
   font-family: Arial, Helvetica, sans-serif;
 
 }
-
-
-.error{
-  color:red;
-  width:3cm ;
-  margin-left: 44%;
-  font-family: 'Times New Roman', Times, serif;
-}
 .filtrar{
   text-align: right;
 }
-.redondeadonorelieve {
-  border-radius: 5px;
-  border: 1px solid #39c;
-}
-.titleproducts{
-  text-align: left;
-  margin: 5%;
-  font-family:Arial, Helvetica, sans-serif;
-}
-hr {
-  margin-left: 10%;
-  margin-right: 10%;
-  }
 
-/*  css para imagenes de liena por 3*/
 
+
+/*  css de cuadro de comentarios*/
+.container {
+  max-width: 960px;
+}
+main {
+  min-height: calc(100vh - 215px);
+}
+
+.cont {
+  overflow: auto;
+  height: 200px;
+}
