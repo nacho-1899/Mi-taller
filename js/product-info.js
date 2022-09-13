@@ -3,12 +3,12 @@
 function showProductGallery(product){ 
     let prodContent ="";
 
-    for(let i=0 ; i < product.images.length; i++){
+    for(let i=0 ; i < product.length; i++){
         let products=[i];
         prodContent += ` 
         <div class ="col-lg-3 col-md-4 col-6"> 
             <div class ="d-block mb-4 h-100">
-               <img class="img-fluid img thumbnail img-fit" src="${products}" >
+               <img class="img-fluid img thumbnail img-fit" src="${products.images}">
              </div>
         </div>
         `
@@ -71,8 +71,7 @@ document.addEventListener("DOMContentLoaded", function(e){ // creo dom
             productcost.innerHTML = product.cost;
             productcagory.innerHTML = product.category;
             productsoldCount.innerHTML = product.soldCount;
-            showProductGallery(product);
-            console.log(product);
+            showProductGallery(product.images);
         }
             
     });
@@ -81,7 +80,15 @@ document.addEventListener("DOMContentLoaded", function(e){ // creo dom
             productc = resultObj.data;
             mostrar();
         }
-        })
+    })
+
+    document.getElementById('agregar').addEventListener('click',function(){
+        let puntos = document.getElementById("puntaje").value;
+        let texto = document.getElementById("item").value;
+        mostrar(puntos, texto);
+    })
+
+
 
 });
 
