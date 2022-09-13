@@ -3,15 +3,22 @@
 
 document.addEventListener("DOMContentLoaded", function(){
     
-let usuario = localStorage.getItem("name");
-if (usuario == null){
+    let usuario = localStorage.getItem("name");
+    if (usuario == null){
     alert("No hay nadie logeado");
     location.href="login.html";
-}else{
+    }else{
     document.getElementById('usuario').innerHTML = usuario;
-}
+    }
 
-// pregunto si no hay nadie logeado y si hay imprimo alado de cerrar sesion
+    document.getElementById("cerrar").addEventListener('click',()=>{
+        alert("Cerrando Sesion");
+        localStorage.clear();
+        window.location.href="login.html";
+    });
+    // n
+
+   // pregunto si no hay nadie logeado y si hay imprimo alado de cerrar sesion
 
 
 
@@ -32,12 +39,14 @@ if (usuario == null){
         window.location = "product-info.html"
     });
 
-
-    document.getElementById("cerrar").addEventListener("click", function() {
+    document.getElementById("cerrar").addEventListener('click',()=>{
         alert("Cerrando Sesion");
         localStorage.clear();
         window.location.href="login.html";
     });
+    // no funciona el cerrar sesion
+    
+
 });
 
 

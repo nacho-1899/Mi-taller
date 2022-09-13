@@ -34,6 +34,7 @@ function points(star){
    };
 
 // muestro los comentarios
+
 function mostrar(){
     let filas = "";
     for(let elementos of productc){
@@ -48,6 +49,15 @@ function mostrar(){
 }
 
 document.addEventListener("DOMContentLoaded", function(e){ // creo dom
+    let usuario = localStorage.getItem("name");
+
+
+    if (usuario == null){
+     alert("No hay nadie logeado");
+     location.href="login.html";
+   }else{
+       document.getElementById("usuario").innerHTML = usuario ;
+   }
 
     let id = localStorage.getItem("proID"); // obtengo id del producto
     getJSONData(PRODUCT_INFO_URL + id +".json").then(function(resultObj){ // concateno todo
@@ -82,12 +92,14 @@ document.addEventListener("DOMContentLoaded", function(e){ // creo dom
         }
     })
 
-    document.getElementById('agregar').addEventListener('click',function(){
-        let puntos = document.getElementById("puntaje").value;
-        let texto = document.getElementById("item").value;
-        mostrar(puntos, texto);
+    document.getElementById('cerrar').addEventListener('click',()=>{
+        alert("Cerrando Sesion");
+        localStorage.clear();
+        window.location.href="login.html";
     })
+    
 
+    
 
 
 });
