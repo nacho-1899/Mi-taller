@@ -1,27 +1,46 @@
 
-// no salen las imagenes
+// no salen las imagenes del producto
 function showProductGallery(product){ 
     let prodContent ="";
 
     for(let i=0 ; i < product.images.length; i++){
         let products=[i];
         prodContent += ` 
-        <img src="` + products.images + `" alt="product image" class="img-thumbnail">` 
-        document.getElementById("imagproduct").innerHTML = prodContent;
+        <div class ="col-lg-3 col-md-4 col-6"> 
+            <div class ="d-block mb-4 h-100">
+               <img class="img-fluid img thumbnail img-fit" src="${products}" >
+             </div>
+        </div>
+        `
+        document.getElementById("productImagesWrapper").innerHTML = prodContent;
+
+
+
 
     }
-
-
-
 }
+// funcion para que coloque las estrellas segun json
+function points(star){
+    var stars = " ";
+   for(let i = 1; i <= 5; i ++) {
+       if (i<= star){
+       stars  += '<i class="fas fa-star" ></i>'; //icono estrella llena
+       }else{
+            stars += '<i class="far fa-star"></i>';//icono contorno estrella
+       }
+      }
+     return stars
+        
+   };
 
-// muestra en filas los comentarios
+// muestro los comentarios
 function mostrar(){
     let filas = "";
     for(let elementos of productc){
         filas+= `<li class="list-group-item">
-        <p>`+ elementos.user + " - " + elementos.dateTime+`</p>
-        ${elementos.description}</li>`;
+        <p>`+ elementos.user + " - " + elementos.dateTime + " "+points(elementos.score)+`</p>
+         ${elementos.description}</li>`;
+    
     }
     document.getElementById('contenedor').innerHTML=filas;
 
@@ -53,6 +72,7 @@ document.addEventListener("DOMContentLoaded", function(e){ // creo dom
             productcagory.innerHTML = product.category;
             productsoldCount.innerHTML = product.soldCount;
             showProductGallery(product);
+            console.log(product);
         }
             
     });
@@ -60,23 +80,14 @@ document.addEventListener("DOMContentLoaded", function(e){ // creo dom
         if(resultObj.status=== "ok"){
             productc = resultObj.data;
             mostrar();
-
-
-
-
-
-
         }
-
-
-    }
-    )
+        })
 
 });
 
    
     
-
-// getJSON para el producto, tomo  bien datos menos la imagen. PROBAR CON HACER UNA FUNCION DE MUESTRA
-// ESTAOS EN LA PARTE 2 FALTA MOSTRAR BIEN LOS DATOS.
-// PARTE 1 COMPLETA
+// parte 1 completa
+// parte 2 solo falta mostrar las imagen. PROBAR CON HACER UNA FUNCION DE MUESTRA.
+// parte 3 completa
+// PARTE 4 no empeze

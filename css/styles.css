@@ -226,3 +226,8 @@ main {
   overflow: auto;
   height: 200px;
 }
+.checked {
+  color:orange;
+  
+  
+}
