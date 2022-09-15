@@ -39,12 +39,7 @@ document.addEventListener("DOMContentLoaded", function(){
         window.location = "product-info.html"
     });
 
-    document.getElementById("cerrar").addEventListener('click',()=>{
-        alert("Cerrando Sesion");
-        localStorage.clear();
-        window.location.href="login.html";
-    });
-    // no funciona el cerrar sesion
+    
     
 
 });

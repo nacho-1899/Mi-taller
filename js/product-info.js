@@ -8,11 +8,13 @@ function showProductGallery(product){
         prodContent += ` 
         <div class ="col-lg-3 col-md-4 col-6"> 
             <div class ="d-block mb-4 h-100">
-               <img class="img-fluid img thumbnail img-fit" src="${products.images}">
+                    <img class="img-fluid img thumbnail img-fit" src="${product[i]}" alt="product images">
              </div>
         </div>
         `
+        console.log(product.images);
         document.getElementById("productImagesWrapper").innerHTML = prodContent;
+        
 
 
 
@@ -82,6 +84,7 @@ document.addEventListener("DOMContentLoaded", function(e){ // creo dom
             productcagory.innerHTML = product.category;
             productsoldCount.innerHTML = product.soldCount;
             showProductGallery(product.images);
+            console.log(product.images);
         }
             
     });
@@ -91,6 +94,7 @@ document.addEventListener("DOMContentLoaded", function(e){ // creo dom
             mostrar();
         }
     })
+    
 
     document.getElementById('cerrar').addEventListener('click',()=>{
         alert("Cerrando Sesion");
@@ -110,3 +114,5 @@ document.addEventListener("DOMContentLoaded", function(e){ // creo dom
 // parte 2 solo falta mostrar las imagen. PROBAR CON HACER UNA FUNCION DE MUESTRA.
 // parte 3 completa
 // PARTE 4 no empeze
+
+// parte 3 el error del for
