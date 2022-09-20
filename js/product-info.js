@@ -1,5 +1,5 @@
 
-// no salen las imagenes del producto
+// imagenes del producto
 function showProductGallery(product){ 
     let prodContent ="";
 
@@ -109,10 +109,3 @@ document.addEventListener("DOMContentLoaded", function(e){ // creo dom
 });
 
    
-    
-// parte 1 completa
-// parte 2 solo falta mostrar las imagen. PROBAR CON HACER UNA FUNCION DE MUESTRA.
-// parte 3 completa
-// PARTE 4 no empeze
-
-// parte 3 el error del for

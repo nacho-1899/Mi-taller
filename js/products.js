@@ -19,9 +19,9 @@ function showProductList (array){
                 <div class="col">
                     <div class="d-flex w-100 justify-content-between">
                         <div class="mb-1">
-                        <h4>`+ category.name +`</h4>
+                        <h4 id="name">`+ category.name +`</h4>
                         <h5>`+ category.currency +"-"+category.cost +`</h5> 
-                        <p> `+ category.description +`</p> 
+                        <p id ="description"> `+ category.description +`</p> 
                         </div>
                         <small class="text-muted">` + category.soldCount + ` artículos</small> 
                     </div>
@@ -58,8 +58,45 @@ function ascendente(){
     let result = productArray.sort((a, b) =>a.cost- b.cost); 
     showProductList(result);
 }
+const boton = document.getElementById('boton');
+function buscar(){
+    let htmlcont= "";
+    const buscar = document.getElementById('buscar');
+    const texto = buscar.value.toLowerCase();
+    for(let category of productArray){
+        let nombre = category.name.toLowerCase();
+        if(nombre.indexOf(texto) !== -1){
+            htmlcont +=`
+            <div onclick =setProdID(${category.id}) class="list-group-item list-group-item-action" id=`+category.id+`>
+                <div class="row">
+                    <div class="col-3">
+                        <img src="` + category.image + `" alt="product image" class="img-thumbnail">
+                    </div>
+                    <div class="col">
+                        <div class="d-flex w-100 justify-content-between">
+                            <div class="mb-1">
+                            <h4 id="name">`+ category.name +`</h4>
+                            <h5>`+ category.currency +"-"+category.cost +`</h5> 
+                            <p id ="description"> `+ category.description +`</p> 
+                            </div>
+                            <small class="text-muted">` + category.soldCount + ` artículos</small> 
+                        </div>
+    
+                    </div>
+                </div>
+            </div>
+            `
+            document.getElementById("cat-list-container").innerHTML = htmlcont;
+
+        }
+        
 
 
+    }
+
+
+
+}
 
 
 
@@ -99,6 +136,10 @@ document.addEventListener("DOMContentLoaded", function(e){
     document.getElementById('descen').addEventListener('click',()=>{
         desenente();
     })
+    document.getElementById('boton').addEventListener('click',()=>{
+        buscar();
+    }
+    )
     document.getElementById('cerrar').addEventListener('click',()=>{
         alert("Cerrando Sesion");
         localStorage.clear();
