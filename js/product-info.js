@@ -4,7 +4,7 @@ function showProductGallery(product){
     let prodContent ="";
 
     for(let i=0 ; i < product.length; i++){
-        let products=[i];
+        //let products=[i];
         prodContent += ` 
         <div class ="col-lg-3 col-md-4 col-6"> 
             <div class ="d-block mb-4 h-100">
@@ -12,7 +12,6 @@ function showProductGallery(product){
              </div>
         </div>
         `
-        console.log(product.images);
         document.getElementById("productImagesWrapper").innerHTML = prodContent;
         
 
@@ -35,6 +34,7 @@ function points(star){
         
    };
 
+
 // muestro los comentarios
 
 function mostrar(){
@@ -48,6 +48,27 @@ function mostrar(){
     document.getElementById('contenedor').innerHTML=filas;
 
 
+}
+function agregar(){
+    let usuario = {};
+     usuario.description = document.getElementById('item').value; //[object HTMLInputElement]
+     usuario.score = document.getElementById('puntaje').value;
+     
+     usuario.dateTime = dia();
+     usuario.user = localStorage.getItem('name');
+     productc.push(usuario);
+     mostrar(usuario);
+   
+}
+function dia(){
+    let hoy = new Date();
+    let dia = hoy.getDate();
+    let mes = hoy.getMonth() +1 ;
+    let año = hoy.getFullYear();
+    let hora = hoy.getHours();
+    let minutos = hoy.getMinutes();
+    let segundos = hoy.getSeconds();
+    return año + "-"+ mes+"-"+dia+" "+hora+":"+minutos+":"+segundos;
 }
 
 document.addEventListener("DOMContentLoaded", function(e){ // creo dom
@@ -65,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function(e){ // creo dom
     getJSONData(PRODUCT_INFO_URL + id +".json").then(function(resultObj){ // concateno todo
 
         if (resultObj.status === "ok"){
-            product = resultObj.data; 
+            product = resultObj.data;
 
             let productnamehtml = document.getElementById("product"); // obtengo el elemento del html donde se inserta
             let productdescription = document.getElementById("description");
@@ -100,6 +121,9 @@ document.addEventListener("DOMContentLoaded", function(e){ // creo dom
         alert("Cerrando Sesion");
         localStorage.clear();
         window.location.href="login.html";
+    })
+    document.getElementById('agregar').addEventListener('click', ()=>{
+        agregar();
     })
     
 
