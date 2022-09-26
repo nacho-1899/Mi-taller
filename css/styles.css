@@ -244,6 +244,11 @@ input[type=text] {
 input[type=text]:focus {
   width: 70%;
 }
+.hr{
+    height: 10px;
+    background-color: black;
+
+}
 
 
 

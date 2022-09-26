@@ -1,4 +1,46 @@
+function setProdID(id){
+    localStorage.setItem("proID", id);
+    window.location = "product-info.html"
+}
 
+function showRelatedProducts(product){
+    let filas ="";
+    for(let i = 0; i < product.length; i++){
+        let category = product[i];
+        filas += `
+        <div onclick =setProdID(${category.id}) class="list-group-item list-group-item-action" id=`+category.id+`>
+            <div class="row">
+                <div class="col-6">
+                    <img src="` + category.image + `" alt="product image" class="img-thumbnail">
+                </div>
+                <div class="col">
+                    <div class="d-flex w-100 justify-content-between">
+                        <div class="mb-1">
+                        <h4 id="name">`+ category.name +`</h4>
+                        
+                        </div>
+                    </div>
+        
+                </div>
+            </div>
+        </div>
+        `
+    document.getElementById("relatedProducts").innerHTML= filas;
+    
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+}
 // imagenes del producto
 function showProductGallery(product){ 
     let prodContent ="";
@@ -94,6 +136,8 @@ document.addEventListener("DOMContentLoaded", function(e){ // creo dom
             let productcost = document.getElementById("cost");
             let productcagory = document.getElementById("category");
             let productsoldCount = document.getElementById("soldCount");
+           
+            
             
 
 
@@ -105,6 +149,7 @@ document.addEventListener("DOMContentLoaded", function(e){ // creo dom
             productcagory.innerHTML = product.category;
             productsoldCount.innerHTML = product.soldCount;
             showProductGallery(product.images);
+            showRelatedProducts(product.relatedProducts);
             console.log(product.images);
         }
             
@@ -132,4 +177,4 @@ document.addEventListener("DOMContentLoaded", function(e){ // creo dom
 
 });
 
-   
+/**/
