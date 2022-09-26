@@ -32,9 +32,17 @@
           </li>
           <li class="nav-item">
           </li>
-          <li class="nav-item">
-            <buttom class="nav-link active" href="#"  id="cerrar">Cerrar Sesion: <span id="usuario"></span></buttom>
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+             <span id="usuario"></span>
           </li>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" href="#">Mi carrito</a></li>
+              <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
+              <li><a class="dropdown-item" id="cerrar">Cerrar sesion</a></li>
+            </ul>
+          </div>
         </ul>
       </div>
     </div>
@@ -86,10 +94,11 @@
     <button type="button" class="btn btn-primary" id="agregar">Agregar</button>
     </div>
     <br>
+    <!-- empieza los productos relacionados-->
     <h2>Productos Relacionados</h2>
     <br>
     <br>
-    <!--<div class="row">
+    <!--<div class="row"> otra forma de mostrar pero se ve igual
     <div class="col">
       <strong>Imagenes relacionadas con el producto</strong>
       <div class="row text-center text-lg-left pt-6" id="relatedProducts"></div>
@@ -102,11 +111,6 @@
         </div>
     </div>
     </div>
- 
-  
-    
-  
-
   </div>
     <div class="container">
       <div class="row">
@@ -138,4 +142,7 @@
   <script src="js/product-info.js"></script>
 </body>
 
+<li class="nav-item">
+  <buttom class="nav-link active" href="#"  id="cerrar">Cerrar Sesion: <span id="usuario"></span></buttom>
+</li>
 </html>
