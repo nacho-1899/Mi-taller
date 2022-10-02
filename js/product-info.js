@@ -28,17 +28,6 @@ function showRelatedProducts(product){
     document.getElementById("relatedProducts").innerHTML= filas;
     
 
-
-
-
-
-
-
-
-
-
-
-
     }
 }
 // imagenes del producto
@@ -47,11 +36,11 @@ function showProductGallery(product){
 
     for(let i=0 ; i < product.length; i++){
         //let products=[i];
-        prodContent += ` 
+        prodContent +=` 
         <div class ="col-lg-3 col-md-4 col-6"> 
             <div class ="d-block mb-4 h-100">
-                    <img class="img-fluid img thumbnail img-fit" src="${product[i]}" alt="product images">
-             </div>
+            <img class="img-fluid img thumbnail img-fit" src="${product[i]}" alt="product images">
+             </img></div>
         </div>
         `
         document.getElementById("productImagesWrapper").innerHTML = prodContent;

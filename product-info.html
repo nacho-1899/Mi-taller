@@ -53,15 +53,16 @@
       <br><h2 class="titleproducts"> <span id="product"></span></h2>
     </div>
     <hr/>
-    <div>
+    <div class="container">
       <h4>Precio:<br></h4>
       <p><span id="currency"></span> <span id="cost"></span></p>
       <h4>descripción:<br></h4>
       <p><span id="description"></span></p>
-      <h4>Categoria;<br></h4>
+      <h4>Categoria:<br></h4>
       <p><span id="category"></span></p>
       <h4>Cantidad de vendidos:<br></h4>
       <p><span id="soldCount"></span></p>
+      <br>
       <div class="row mt-2 mb-5">
         <div class="col">
           <strong>Imagenes del producto</strong>
@@ -72,18 +73,20 @@
     <div>
     <h4>Comentarios:</h4>
     </div>
-    <div class="col-sm-8">
+    <div class="col-sm-10">
       <div class="border rounded-3 cont">
         <ul class="list-group" id="contenedor">
         </ul>
       </div>
     </div>
     </div>
+    <br>
      <!-- empieza agregar comentarios-->
-     <br><div class="col-sm-4">
+    <br>
+    <div class="container">
     <label for="Item" class="form-label">Comentario:</label>
     <input type="textarea" class="form-control" id="item">
-    <br>puntaje: <select id="puntaje">
+    <br>Puntaje:  <select id="puntaje">
       <option value=1>1</option>
       <option value=2>2</option>
       <option value=3>3</option>
@@ -98,14 +101,8 @@
     <h2>Productos Relacionados</h2>
     <br>
     <br>
-    <!--<div class="row"> otra forma de mostrar pero se ve igual
-    <div class="col">
-      <strong>Imagenes relacionadas con el producto</strong>
-      <div class="row text-center text-lg-left pt-6" id="relatedProducts"></div>
-    </div>
-    </div>-->
    <div class="container">
-    <div class="row">
+    <div class="col-sm-10">
         <div class="list-group" id="relatedProducts">
           
         </div>
