@@ -46,27 +46,74 @@
     </div>
   </nav>
   <main>
+    <div class="container p-5">
     <br><div class="titulo"><h1>Carrito de Compras</h1></div>
     <br>
-    <div><p>Articulos a comprar</p></div>
-    <table class="table table">
+    <div><h3>Articulos a comprar</h3></div>
+    <!-- empieza tabla del carito-->
+  <table class="table table">
+    <tr>
       <th>Imagen</th>
       <th>Nombre</th>
       <th>Costo</th>
       <th>Cantidad</th>
-      <th>Moneda</th>
       <th>Sub Total</th>
-      <td id="imagen"></td>
+    </tr>
+    <tr>
+      <td><span id="imagen" class="imgcart"></span></td>
       <td id="nombre"></td>
-      <td id="costo"></td>
-      <td id="cantidad"></td>
-      <td id="moneda"></td>
+      <td><span id="currency"></span> <span id="costo"></span></td>
+      <td><input type="number" id="count" style="height: 30px; width: 40px;"></td>
       <td id="subtotal"></td>
+    </tr>
+  </table>
+  <hr>
+  <!-- tipo del envio-->
+  <h3>Tipo de envio.</h3>
+  <div>
+    <div>
+      <input id="premium"  type="radio" class="custom-control-input" >
+      <label class="custom-control-label" for="premiumradio">Premium 2 a 5 dias (15%)</label>
+    </div>
+    <div>
+      <input id="express" type="radio" class="custom-control-input">
+      <label class="custom-control-label" for="expressradio">Express 5 a 8 dias (7%)</label>
+    </div>
+    <div>
+      <input id="standar" type="radio" class="custom-control-input">
+      <label class="custom-control-label" for="standardradio">Estándar 12 a 15 dias (5%)</label>
+    </div>
+  </div>
+  <br>
+  <!-- datos del envio-->
+  <h3>Datos de Envios</h3>
+  <br>
 
+    <form>
+      <div class="form-row">
+        <div class="col-md-6 mb-3">
+          <label for="validationCalle">Calle</label>
+          <input type="text"  class="form-control">
+        </div>
 
+        <div class="col-md-6 mb-3">
+          <label for="validationNumero">Numero</label>
+          <input type="number" name="numeroS" class="form-control">
+        </div>
 
+      </div>
+      <div class="form-row">
+        <div class="col-md-6 mb-3">
+          <label for="validationEsquina">Esquina</label>
+          <input type="text" name="esquinaS" class="form-control">
 
-    </table>
+          </div>
+        </div>
+      </div>
+
+    </form>
+</div>
+<!--termina el carrito-->
     
   </main>
   <footer class="text-muted">

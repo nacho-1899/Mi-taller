@@ -1,8 +1,33 @@
+function subTotal(){
+    let subtotal;
+    let costo = parseInt(document.getElementById("costo"))
+    let cantidad = parseInt(document.getElementById("count").value)
+    subtotal = costo * cantidad;
+    document.getElementById("subtotal").innerHTML=subtotal;
+    console.log(cantidad)
+
+}
+
+function showImagen(){
+    let filas ="";
+    for(let i = 0; i < productArray.length; i++){
+        filas += `<img src="` +productArray[0].image +`">`
+        document.getElementById('imagen').innerHTML=filas;
+    }
+}
+
 function showCart(){
+    let namehtml = document.getElementById("nombre");
+    namehtml.innerHTML = productArray[0].name;
+    let costhtml = document.getElementById("costo");
+    costhtml.innerHTML = productArray[0].unitCost;
+    let currencyhtml = document.getElementById("currency");
+    currencyhtml.innerHTML=productArray[0].currency;
+    let counthtml = document.getElementById("count");
+    counthtml.innerHTML=productArray[0].count;
+    showImagen();
     
-
-   
-
+    
 }
 
 
@@ -15,7 +40,8 @@ document.addEventListener("DOMContentLoaded", function(){
 
         if (resultObj.status === "ok")
         {
-            productArray = resultObj.articles;
+            productArray = resultObj.data.articles;
+            console.log(productArray);
             showCart(productArray);
             
         }
@@ -35,6 +61,10 @@ document.addEventListener("DOMContentLoaded", function(){
             localStorage.clear();
             window.location.href="login.html";
         })
+        document.getElementById('subtotal').addEventListener('change', ()=>{
+            subTotal();
+
+        })
     
 
 
@@ -43,5 +73,6 @@ document.addEventListener("DOMContentLoaded", function(){
 
 });
 
-// parte 1  falta mostrar en HTML la información del mismo
+// parte 1 y  2 completa
+// falta parte 3, no me toma los datos del input
 
