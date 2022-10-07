@@ -1,31 +1,30 @@
-function subTotal(){
-    let subtotal;
-    let costo = parseInt(document.getElementById("costo"))
-    let cantidad = parseInt(document.getElementById("count").value)
-    subtotal = costo * cantidad;
-    document.getElementById("subtotal").innerHTML=subtotal;
-    console.log(cantidad)
+function subTotal(){ // muestra el subtotal cuando cambia la cantidad
+    let subtotal = 0;
+    subtotal = parseInt((document.getElementById("count").value)*(productArray[0].unitCost));
+    document.getElementById("sub").innerHTML=subtotal;
+    
 
 }
 
-function showImagen(){
+function showImagen(){ // muestra la imagen del producto
     let filas ="";
     for(let i = 0; i < productArray.length; i++){
-        filas += `<img src="` +productArray[0].image +`">`
+        filas += `<img src="` +productArray[0].image +`"width:"25">`
         document.getElementById('imagen').innerHTML=filas;
     }
 }
 
-function showCart(){
+function showCart(){ // muestra las propiedades del producto
     let namehtml = document.getElementById("nombre");
     namehtml.innerHTML = productArray[0].name;
     let costhtml = document.getElementById("costo");
     costhtml.innerHTML = productArray[0].unitCost;
     let currencyhtml = document.getElementById("currency");
     currencyhtml.innerHTML=productArray[0].currency;
-    let counthtml = document.getElementById("count");
-    counthtml.innerHTML=productArray[0].count;
+    let counthtml = document.getElementById("count")  
+    counthtml.value=productArray[0].count;
     showImagen();
+    subTotal();
     
     
 }
@@ -40,8 +39,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
         if (resultObj.status === "ok")
         {
-            productArray = resultObj.data.articles;
-            console.log(productArray);
+            productArray = resultObj.data.articles;;
             showCart(productArray);
             
         }
@@ -61,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function(){
             localStorage.clear();
             window.location.href="login.html";
         })
-        document.getElementById('subtotal').addEventListener('change', ()=>{
+        document.getElementById('count').addEventListener('change', ()=>{
             subTotal();
 
         })
@@ -73,6 +71,5 @@ document.addEventListener("DOMContentLoaded", function(){
 
 });
 
-// parte 1 y  2 completa
-// falta parte 3, no me toma los datos del input
+
 
