@@ -30,19 +30,24 @@ function showRelatedProducts(product){
 
     }
 }
-// imagenes del producto
+// imagenes del producto primera con active y segunda sin active para el carusel
 function showProductGallery(product){ 
     let prodContent ="";
 
     for(let i=0 ; i < product.length; i++){
-        //let products=[i];
-        prodContent +=` 
-        <div class ="col-lg-3 col-md-4 col-6"> 
-            <div class ="d-block mb-4 h-100">
-            <img class="img-fluid img thumbnail img-fit" src="${product[i]}" alt="product images">
-             </img></div>
-        </div>
+        if(i==1){
+            prodContent +=` 
+        <div class="carousel-item active">
+        <img src="${product[i]}" class="d-block w-10" alt="...">
+      </div>
         `
+        }else{
+            prodContent +=` 
+        <div class="carousel-item">
+        <img src="${product[i]}" class="d-block w-10" alt="...">
+      </div>
+        `}
+       
         document.getElementById("productImagesWrapper").innerHTML = prodContent;
         
 
@@ -166,4 +171,8 @@ document.addEventListener("DOMContentLoaded", function(e){ // creo dom
 
 });
 
-/**/
+/* <div class ="col-lg-3 col-md-4 col-6"> 
+            <div class ="d-block mb-4 h-100">
+            <img class="img-fluid img thumbnail img-fit" src="${product[i]}" alt="product images">
+             </img></div>
+        </div>*/
