@@ -190,13 +190,14 @@ a.custom-card:hover {
   color: orange;
 }
 img {
-  max-width: 50%;
+  max-width: 100%;
   max-height: 50%;
+  text-align: center;
  }
 
-.imgl{
+/*.imgl{
   text-align : center;
-}
+}*/
 h2{
   text-align: center;
 }
@@ -215,6 +216,7 @@ h2{
 
 
 
+
 /*  css de cuadro de comentarios*/
 .container {
   max-width: 960px;
@@ -227,24 +229,6 @@ main {
   overflow: auto;
   height: 200px;
 }
-/*buscador*/
-/*#searchbar{
-  margin-left: 15%;
-  padding:15px;
-  border-radius: 10px;
-}
-
-input[type=text] {
-   width: 30%;
-   -webkit-transition: width 0.15s ease-in-out;
-   transition: width 0.15s ease-in-out;
-}*/
-
-/* When the input field gets focus,
-     change its width to 100% */
-/*input[type=text]:focus {
-  width: 70%;
-}*/
 h4{
   font-weight: bold;
 }
@@ -255,6 +239,13 @@ h4{
   max-width: 3%;
   max-height: 3%;
 }
+.botoncarrito{
+  text-align: right;
+}
+.error{
+  color:red;
+}
+
 
 
 

@@ -2,6 +2,10 @@ function setProdID(id){
     localStorage.setItem("proID", id);
     window.location = "product-info.html"
 }
+function agregarCarrito(){// intenco obtener datos para pasarlo al carrito
+    let nombrep = document.getElementById('product').value;
+    localStorage.setItem('namep',nombrep);
+}
 
 function showRelatedProducts(product){
     let filas ="";
@@ -144,7 +148,6 @@ document.addEventListener("DOMContentLoaded", function(e){ // creo dom
             productsoldCount.innerHTML = product.soldCount;
             showProductGallery(product.images);
             showRelatedProducts(product.relatedProducts);
-            console.log(product.images);
         }
             
     });
@@ -164,6 +167,9 @@ document.addEventListener("DOMContentLoaded", function(e){ // creo dom
     document.getElementById('agregar').addEventListener('click', ()=>{
         agregar();
     })
+    document.getElementById('acarrito').addEventListener('click', ()=>{
+        agregarCarrito();
+    })
     
 
     
@@ -171,8 +177,3 @@ document.addEventListener("DOMContentLoaded", function(e){ // creo dom
 
 });
 
-/* <div class ="col-lg-3 col-md-4 col-6"> 
-            <div class ="d-block mb-4 h-100">
-            <img class="img-fluid img thumbnail img-fit" src="${product[i]}" alt="product images">
-             </img></div>
-        </div>*/
