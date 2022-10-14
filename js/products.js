@@ -122,6 +122,8 @@ document.addEventListener("DOMContentLoaded", function(e){
         {
             productArray = resultObj.data.products;
             showProductList(productArray);
+            
+
         }
     });
     document.getElementById('filtrar').addEventListener('click',()=>{
