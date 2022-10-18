@@ -1,9 +1,16 @@
-function subTotal(){ // muestra el subtotal cuando cambia la cantidad
+
+function subTotal(){ // muestra el subtotal en el carrito y tabla de costos
     let subtotal = 0;
     subtotal = parseInt((document.getElementById("count").value)*(productArray[0].unitCost));
     document.getElementById("sub").innerHTML=subtotal;
-    
+    document.getElementById("subtotalcost").innerHTML="USD "+ subtotal;
+    let enviocost = document.getElementById("enviocost");//muestra sub total tabla costos
+    let envio = porcentajeEnvio*subtotal;
+    enviocost.innerHTML="USD"+envio;// muestra envio tabla de costos
+    let totalCost=document.getElementById("totalCost");
+    totalCost.innerHTML="USD"+(envio+subtotal);// total= subtotal+envio en tabla de costos
 
+    
 }
 
 function showImagen(){ // muestra la imagen del producto
@@ -63,6 +70,18 @@ document.addEventListener("DOMContentLoaded", function(){
             subTotal();
 
         })
+        document.getElementById("premium").addEventListener("change", function () {
+             porcentajeEnvio = 0.15;
+            subTotal();
+        });
+        document.getElementById("express").addEventListener("change", function () {
+             porcentajeEnvio = 0.07;
+            subTotal();
+        });
+        document.getElementById("estandar").addEventListener("change", function () {
+             porcentajeEnvio = 0.05;
+            subTotal();
+        });
     
 
 

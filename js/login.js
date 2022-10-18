@@ -8,9 +8,9 @@ function login(){
         document.getElementById("username").style.borderColor = "red";
         document.getElementById("clave").style.borderColor = "red";
         document.getElementById("name").style.borderColor = "red";
-        document.getElementById("parrafo").innerHTML = "Ingrese su Email";
-        document.getElementById("parrafo2").innerHTML = "Ingrese su Contraseña";
-        document.getElementById("parrafo3").innerHTML = "Ingrese su Nombre";
+        document.getElementById("parrafo").innerHTML = "Ingrese su Nombre";
+        document.getElementById("parrafo2").innerHTML = "Ingrese su Email";
+        document.getElementById("parrafo3").innerHTML = "Ingrese su Contraseña";
         
         
 
