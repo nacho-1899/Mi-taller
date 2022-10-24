@@ -1,29 +1,11 @@
 function finalizarCompra(){
-   // let cantidad = document.getElementById("count").value;
-    //let enviop = document.getElementById("premium").value;
-   // let envioe = document.getElementById("express").value;
-    //let envioes = document.getElementById("estandar").value;
-    let numero = document.getElementById("calle").value;
-    let calle = document.getElementById("numero").value;
-    let esquina = document.getElementById("esquina").value;
-    if(  numero =="" || calle =="" || esquina =="" ){
-        //document.getElementById("count").style.borderColor = "red";
-        //document.getElementById("premium").style.borderColor = "red";
-       // document.getElementById("express").style.borderColor = "red";
-        //document.getElementById("estandar").style.borderColor = "red";
-        document.getElementById("calle").style.borderColor = "red";
-        document.getElementById("numero").style.borderColor = "red";
-        document.getElementById("esquina").style.borderColor = "red";
+    document.getElementById('seleccion').style.display = 'none';
+    valor1 = document.getElementById('tarjeta');
+    if(valor1.checked == true){
+        document.getElementById('selecionado').innerHTML="Pago con Trajeta."
     }else{
+        document.getElementById('selecionado').innerHTML="Pago con Transefrencia." 
     }
-    
-    
-
-
-
-
-
-
 }
 function desactivarTransferencia(){
     let input = document.getElementById("ncuenta");
@@ -135,32 +117,12 @@ document.addEventListener("DOMContentLoaded", function(){
             desactivarTarjeta();
             
         });
-        document.getElementById("finalizada").addEventListener("click", function () {
+        document.getElementById("grdfordpago").addEventListener("click", function () {
             finalizarCompra();
             
         });
 
-        document.getElementById("guardar").addEventListener("click", function () {
-            let desaparece = document.getElementById("seleccion");
-            desaparece.style.display= none;
-            
-            //let modal = document.getElementById("EjemploModal");
-            //modal.style.display="inherit"
-            //let tarjeta = document.getElementById("tarjeta")
-            //let trasferencia = document.getElementById("pago")   
-           // if (tarjeta == true){
-           //     opcion = document.getElementById("selecionado")
-            //    opcion.innerHTML == "Tarjeta de credito"
-            //    let desaparece = document.getElementById("seleccion");
-            //    desaparece..style.display= none;
-           // }else{
-            //    trasferencia == true;
-            //    opcion = document.getElementById("selecionado")
-           //     opcion.innerHTML == "Transferencia bancaria"
-            //    let desaparece = document.getElementById("seleccion");
-            //    desaparece.style.display = none;        
-            
-        });
+       
 });
 // falta que guarde la opcion tarjeta o trasferencia y la agregre al htmml
 

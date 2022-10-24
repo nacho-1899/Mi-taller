@@ -135,7 +135,9 @@
     <!-- tipo de pago-->
     <hr>
     <br><h3>Forma de pago.</h3>
-    <br><p id="seleccion">No se a selecionado ninguna opcion. </p><span id="selecionado"></span> <button type="button" class="btn btn-info" data-toggle="modal" data-target="#EjemploModal">Mostrar modal</button>
+    <br><p id="seleccion">No se a selecionado ninguna opcion. </p>
+    <span id="selecionado"></span><br>
+    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#EjemploModal">Mostrar modal</button>
 
 
     <div class="modal fade" id="EjemploModal" tabindex="-1" role="dialog" aria-labelledby="EjemploModalLabel" aria-hidden="true">
@@ -148,7 +150,7 @@
               </button>
               </div>
               <div class="modal-body">
-              <div><input type="radio" name="pago" id="tarjeta"> Tarjeta de credito</input><hr></div>
+              <div><input type="radio" name="pago" id="tarjeta" value="1"> Tarjeta de credito</input><hr></div>
               <div><p>Numero de Tarjeta</p>
                 <input id="ntarjeta" type="text"></div>
                 <div>Codigo de seguridad</p>
@@ -156,12 +158,12 @@
                 <div>Vencimiento de Tarjeta</p>
                 <input id="vencimiento" type="text"></div>
               <hr>
-              <div><input type="radio" name="pago" id="selecTransferencia"> Transferencia Bancaria</input><hr></div>
+              <div><input type="radio" name="pago" id="selecTransferencia" value="2"> Transferencia Bancaria</input><hr></div>
               <div>Numero de cuenta</p>
                 <input id="ncuenta" type="text"></div>
               </div>
               <div class="modal-footer">
-              <button type="button"  class="btn btn-primary">Guardar</button>
+              <button type="button"   id="grdfordpago"class="btn btn-primary" data-dismiss="modal">Guardar</button>
               </div>
           </div>
       </div>
