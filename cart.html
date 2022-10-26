@@ -9,6 +9,7 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -69,17 +70,17 @@
   </table>
   <hr>
   <!-- tipo del envio-->
+  
   <form>
 
     <p>
   
       <h3>Tipo de envio:</h3><br>
   
-      <br><input type="radio" name="empleoactual" id="premium">Premium 2 a 5 dias (15%)<br>
-  
-      <input type="radio" name="empleoactual" id="express">Express 5 a 8 dias (7%)<br>
-  
-      <input type="radio" name="empleoactual" id="estandar">Estándar 12 a 15 dias (5%)
+      <br><input type="radio" name="radio" id="premium" >Premium 2 a 5 dias (15%)<br>
+      <input type="radio" name="radio" id="express" >Express 5 a 8 dias (7%)<br>
+      <input type="radio" name="radio" id="estandar">Estándar 12 a 15 dias (5%)
+      <p><span id="envioincorrecto" class="incorrecto"></span></p>
   
     </p>
   
@@ -93,19 +94,24 @@
       <div class="form-row">
         <div class="col-md-6 mb-3">
           <label for="validationCalle" id="calle">Calle</label>
-          <input type="text"  class="form-control">
+          <input type="text"  class="form-control" id="input1" >
+          <div id="invalidcalle" class="incorrecto"></div>
+
         </div>
+        
 
         <div class="col-md-6 mb-3">
           <label for="validationNumero" id="numero">Numero</label>
-          <input type="number" name="numeroS" class="form-control">
+          <input type="number"  class="form-control" id="input2" >
+          <div id="invalidnumero" class="incorrecto"></div>
         </div>
 
       </div>
       
         <div class="col-md-6 mb-3">
           <label for="validationEsquina" id="esquina">Esquina</label>
-          <input type="text" name="esquinaS" class="form-control">
+          <input type="text"  class="form-control" id="input3">
+          <div id="invalidesquina" class="incorrecto"></div>
 
   
         </div>
@@ -135,7 +141,10 @@
     <!-- tipo de pago-->
     <hr>
     <br><h3>Forma de pago.</h3>
-    <br><p id="seleccion">No se a selecionado ninguna opcion. </p><span id="selecionado"></span> <button type="button" class="btn btn-info" data-toggle="modal" data-target="#EjemploModal">Mostrar modal</button>
+    <br><p id="seleccion">No se a selecionado ninguna opcion. </p>
+    <span id="selecionado"></span><br>
+    <span id="invalidaopcion" class="incorrecto"></span><br>
+    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#EjemploModal">Mostrar modal</button>
 
 
     <div class="modal fade" id="EjemploModal" tabindex="-1" role="dialog" aria-labelledby="EjemploModalLabel" aria-hidden="true">
@@ -148,7 +157,7 @@
               </button>
               </div>
               <div class="modal-body">
-              <div><input type="radio" name="pago" id="tarjeta"> Tarjeta de credito</input><hr></div>
+              <div><input type="radio" name="pago" id="tarjeta" value="1"> Tarjeta de credito</input><hr></div>
               <div><p>Numero de Tarjeta</p>
                 <input id="ntarjeta" type="text"></div>
                 <div>Codigo de seguridad</p>
@@ -156,20 +165,23 @@
                 <div>Vencimiento de Tarjeta</p>
                 <input id="vencimiento" type="text"></div>
               <hr>
-              <div><input type="radio" name="pago" id="selecTransferencia"> Transferencia Bancaria</input><hr></div>
+              <div><input type="radio" name="pago" id="selecTransferencia" value="2"> Transferencia Bancaria</input><hr></div>
               <div>Numero de cuenta</p>
                 <input id="ncuenta" type="text"></div>
               </div>
               <div class="modal-footer">
-              <button type="button"  class="btn btn-primary">Guardar</button>
+              <button type="button"   id="grdfordpago"class="btn btn-primary" data-dismiss="modal">Guardar</button>
               </div>
           </div>
       </div>
   </div>
   <hr>
   <br>
+  <p><span id="error" class="incorrecto"></span></p>
   <br><button id="finalizada" class="btn btn-primary btn-lg btn-block">Finalizar compra</button>
-    
+  <div class="alert alert-success" role="alert" id="exito">
+    Compra exitosa! 
+  </div>
     
 </div>
 <!--termina el carrito-->

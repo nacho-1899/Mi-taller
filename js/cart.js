@@ -1,43 +1,43 @@
-function finalizarCompra(){ // las que estan comentadas no funciona bien 
+// funcion que al tocar boton se fije si coloca cantidad, nombre, calle y esquina. Si estan todos pone cartel compra exitosa.
+// todavia no pude con los tipye radio ni la parte 2 ni 3
+// lo demas ya esta
+
+function finalizarCompra(){ 
+    
     cantidad = document.getElementById('count').value;
-    premium = document.getElementById('premium');//
-    express = document.getElementById('express');//
-    estandar = document.getElementById('estandar');//
-    calle = document.getElementById('calle').value;
-    numero = document.getElementById('numero').value;
-    esquina= document.getElementById('esquina').value;
-    opcion1 = document.getElementById('tarjeta');//
-    opcion2 = document.getElementById('selecTransferencia');//
-    if(cantidad === "" || cantidad === 0){
+    calle = document.getElementById('input1').value;
+    numero = document.getElementById('input2').value;
+    esquina= document.getElementById('input3').value;
+    opcion1 = document.getElementById('tarjeta');
+    opcion2 = document.getElementById('selecTransferencia');
+    errorlHTML= document.getElementById('error');
+
+    if(cantidad === "" || cantidad <= 0 || calle == ""|| numero =="" || esquina == ""){
         document.getElementById('count').style.borderColor = "red";
-    }
-    if (premium.checked == true || estandar.checked == false || express.checked == false) {// no funciona siempre muestra el cartel
-        document.getElementById('envio-incorrecto').innerHTML="Debes seleccionar un tipo de envio."
-    } else {
-        document.getElementById('envio-incorrecto').innerHTML="";
-    }
-    if(calle == "" ||  calle == null ){
-        document.getElementById('invalidcalle').innerHTML="Debes ingresar el nombre de la calle"
-        document.getElementById('input1').style.borderColor = "red";
-    }
-    if (numero == "" || numero == null ){
-        document.getElementById('invalidnumero').innerHTML="Debes ingresar el numero de puerta"
-        document.getElementById('input2').style.borderColor = "red";
-    }
-    if (esquina== "" || esquina == null ){
-        document.getElementById('invalidesquina').innerHTML="Debes ingresar el nombre de la esquina"
         document.getElementById('input3').style.borderColor = "red";
-    } 
-    if(opcion1.checked == false || opcion2 == false ){ // aparecen cuando no hay ninguna elegido pero no se cobbra el p en rejo si eleciono algo 
-        document.getElementById('invalidaopcion').innerHTML="No se selecciono ninguna forma de pago"
+        document.getElementById('invalidesquina').innerHTML = "Debes ingresar nombre de la calle."
+        document.getElementById('input2').style.borderColor = "red";
+        document.getElementById('invalidnumero').innerHTML = "Debes ingresar nombre de la calle."
+        document.getElementById('input1').style.borderColor = "red";
+        document.getElementById('invalidcalle').innerHTML = "Debes ingresar nombre de la calle."
+        
+    }else{
+        document.getElementById('exito').style.display = 'block';
+         
     }
+
+   
+   
+
+   
+    
     
 }
 
 function formaPago(){ // boton guardar del modal de pago, selecciona la forma de pago
     document.getElementById('seleccion').style.display = 'none';
     valor1 = document.getElementById('tarjeta');
-    if(valor1.checked == true){
+    if(valor1.checked === true){
         document.getElementById('selecionado').innerHTML="Pago con Trajeta."
     }else{
         document.getElementById('selecionado').innerHTML="Pago con Transefrencia." 

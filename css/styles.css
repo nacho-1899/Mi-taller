@@ -248,8 +248,7 @@ h4{
 .incorrecto{
   color: red;
 }
-
-
-
-
+#exito{
+  display: none;
+}
 
