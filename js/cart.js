@@ -1,6 +1,3 @@
-// funcion que al tocar boton se fije si coloca cantidad, nombre, calle y esquina. Si estan todos pone cartel compra exitosa.
-// todavia no pude con los tipye radio ni la parte 2 ni 3
-// lo demas ya esta
 
 function finalizarCompra(){ 
     
@@ -8,37 +5,55 @@ function finalizarCompra(){
     calle = document.getElementById('input1').value;
     numero = document.getElementById('input2').value;
     esquina= document.getElementById('input3').value;
-    opcion1 = document.getElementById('tarjeta');
-    opcion2 = document.getElementById('selecTransferencia');
+    envio = document.querySelector('[name="r"]').checked;
+    pago = document.querySelector('[name="pago"]').checked;
+    opcion1 = document.getElementById('tarjeta').checked;
+    opcion2 = document.getElementById('selecTransferencia').checked;
     errorlHTML= document.getElementById('error');
 
-    if(cantidad === "" || cantidad <= 0 || calle == ""|| numero =="" || esquina == ""){
+    if(cantidad === "" || cantidad <=0 || calle === ""|| numero ==="" || esquina === "" || envio === false || pago === false  ){
         document.getElementById('count').style.borderColor = "red";
         document.getElementById('input3').style.borderColor = "red";
         document.getElementById('invalidesquina').innerHTML = "Debes ingresar nombre de la calle."
         document.getElementById('input2').style.borderColor = "red";
-        document.getElementById('invalidnumero').innerHTML = "Debes ingresar nombre de la calle."
+        document.getElementById('invalidnumero').innerHTML = "Debes ingresar nombre de la numero."
         document.getElementById('input1').style.borderColor = "red";
-        document.getElementById('invalidcalle').innerHTML = "Debes ingresar nombre de la calle."
+        document.getElementById('invalidcalle').innerHTML = "Debes ingresar nombre de la esquina."
+        document.getElementById('envioincorrecto').innerHTML="Dene seleccionar un envio"
+        document.getElementById('invalidaopcion').innerHTML= "Debe seleccionar una forma de pago e insertar los datos";
+        if(opcion1=== true){
+            ntarjeta = document.getElementById('ntarjeta').value;
+            codigo = document.getElementById('codigo').value;
+            vencimiento = document.getElementById('vencimiento').value;
+            if(ntarjeta === 0 || ntarjeta=== null || codigo === 0 || codigo=== null || vencimiento === 0 || vencimiento=== null ){
+                document.getElementById('incorrecto').innerHTML="faltan datos"
+            }else{
+                document.getElementById('incorrecto').innerHTML=""  
+            }
+        }
+        if(opcion2=== true){
+            ntarjeta = document.getElementById('ncuenta').value;
+            
+            if(ntarjeta === 0 || ntarjeta=== null){
+                document.getElementById('incorrecto').innerHTML="faltan datos"
+            }else{
+                document.getElementById('incorrecto').innerHTML=""  
+            }
+        }
         
     }else{
+        
+        
         document.getElementById('exito').style.display = 'block';
          
-    }
-
-   
-   
-
-   
-    
-    
+    }   
 }
 
 function formaPago(){ // boton guardar del modal de pago, selecciona la forma de pago
     document.getElementById('seleccion').style.display = 'none';
     valor1 = document.getElementById('tarjeta');
     if(valor1.checked === true){
-        document.getElementById('selecionado').innerHTML="Pago con Trajeta."
+        document.getElementById('selecionado').innerHTML="Pago con Tarjeta."
     }else{
         document.getElementById('selecionado').innerHTML="Pago con Transefrencia." 
     }
@@ -70,7 +85,7 @@ function subTotal(){ // muestra el subtotal en el carrito y tabla de costos
     document.getElementById("sub").innerHTML=subtotal;
     document.getElementById("subtotalcost").innerHTML="USD "+ subtotal;
     let enviocost = document.getElementById("enviocost");//muestra sub total tabla costos
-    let envio = porcentajeEnvio*subtotal;
+   let envio = porcentajeEnvio*subtotal;
     enviocost.innerHTML="USD"+envio;// muestra envio tabla de costos
     let totalCost=document.getElementById("totalCost");
     totalCost.innerHTML="USD"+(envio+subtotal);// total= subtotal+envio en tabla de costos
@@ -109,11 +124,23 @@ document.addEventListener("DOMContentLoaded", function(){
 
         if (resultObj.status === "ok")
         {
-            productArray = resultObj.data.articles;;
+            productArray = resultObj.data.articles;
             showCart(productArray);
             
         }
     });
+
+    /*let cid = localStorage.getItem('proID')*/
+   /* getJSONData(CART_INFO_URL + cid  +".json").then(function(resultObj){
+
+        if (resultObj.status === "ok")
+        {
+            productCarrito = resultObj.data.articles;;
+            showCart(productCarrito);
+            console.log(productCarrito)
+            
+        }
+    });*/
 
     let usuario = localStorage.getItem("name");
         if (usuario == null){

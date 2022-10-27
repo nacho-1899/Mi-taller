@@ -77,9 +77,9 @@
   
       <h3>Tipo de envio:</h3><br>
   
-      <br><input type="radio" name="radio" id="premium" >Premium 2 a 5 dias (15%)<br>
-      <input type="radio" name="radio" id="express" >Express 5 a 8 dias (7%)<br>
-      <input type="radio" name="radio" id="estandar">Estándar 12 a 15 dias (5%)
+      <br><input type="checkbox" name="r" id="premium" >Premium 2 a 5 dias (15%)<br>
+      <input type="checkbox" name="r" id="express" >Express 5 a 8 dias (7%)<br>
+      <input type="checkbox" name="r" id="estandar">Estándar 12 a 15 dias (5%)
       <p><span id="envioincorrecto" class="incorrecto"></span></p>
   
     </p>
@@ -157,7 +157,7 @@
               </button>
               </div>
               <div class="modal-body">
-              <div><input type="radio" name="pago" id="tarjeta" value="1"> Tarjeta de credito</input><hr></div>
+              <div><input type="checkbox" name="pago" id="tarjeta" value="1"> Tarjeta de credito</input><hr></div>
               <div><p>Numero de Tarjeta</p>
                 <input id="ntarjeta" type="text"></div>
                 <div>Codigo de seguridad</p>
@@ -165,7 +165,7 @@
                 <div>Vencimiento de Tarjeta</p>
                 <input id="vencimiento" type="text"></div>
               <hr>
-              <div><input type="radio" name="pago" id="selecTransferencia" value="2"> Transferencia Bancaria</input><hr></div>
+              <div><input type="checkbox" name="pago" id="selecTransferencia" value="2"> Transferencia Bancaria</input><hr></div>
               <div>Numero de cuenta</p>
                 <input id="ncuenta" type="text"></div>
               </div>

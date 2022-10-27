@@ -2,10 +2,12 @@ function setProdID(id){
     localStorage.setItem("proID", id);
     window.location = "product-info.html"
 }
-function agregarCarrito(){// intenco obtener datos para pasarlo al carrito
-    let nombrep = document.getElementById('product').value;
-    localStorage.setItem('namep',nombrep);
-}
+//function agregarCarrito(){// intenco obtener datos para pasarlo al carrito
+   // localStorage.setItem("product", product.id);
+   // ;
+
+
+//}
 
 function showRelatedProducts(product){
     let filas ="";
