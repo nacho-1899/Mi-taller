@@ -9,7 +9,7 @@ function finalizarCompra(){
     pago = document.querySelector('[name="pago"]').checked;
     opcion1 = document.getElementById('tarjeta').checked;
     opcion2 = document.getElementById('selecTransferencia').checked;
-    errorlHTML= document.getElementById('error');
+    errorlHTML= document.getElementById('error')
 
     if(cantidad === "" || cantidad <=0 || calle === ""|| numero ==="" || esquina === "" || envio === false || pago === false  ){
         document.getElementById('count').style.borderColor = "red";
@@ -20,33 +20,11 @@ function finalizarCompra(){
         document.getElementById('input1').style.borderColor = "red";
         document.getElementById('invalidcalle').innerHTML = "Debes ingresar nombre de la esquina."
         document.getElementById('envioincorrecto').innerHTML="Dene seleccionar un envio"
-        document.getElementById('invalidaopcion').innerHTML= "Debe seleccionar una forma de pago e insertar los datos";
-        if(opcion1=== true){
-            ntarjeta = document.getElementById('ntarjeta').value;
-            codigo = document.getElementById('codigo').value;
-            vencimiento = document.getElementById('vencimiento').value;
-            if(ntarjeta === 0 || ntarjeta=== null || codigo === 0 || codigo=== null || vencimiento === 0 || vencimiento=== null ){
-                document.getElementById('incorrecto').innerHTML="faltan datos"
-            }else{
-                document.getElementById('incorrecto').innerHTML=""  
-            }
-        }
-        if(opcion2=== true){
-            ntarjeta = document.getElementById('ncuenta').value;
-            
-            if(ntarjeta === 0 || ntarjeta=== null){
-                document.getElementById('incorrecto').innerHTML="faltan datos"
-            }else{
-                document.getElementById('incorrecto').innerHTML=""  
-            }
-        }
-        
+        document.getElementById('invalidaopcion').innerHTML= "Debe seleccionar una forma de pago ";
+
     }else{
-        
-        
         document.getElementById('exito').style.display = 'block';
-         
-    }   
+    }
 }
 
 function formaPago(){ // boton guardar del modal de pago, selecciona la forma de pago
@@ -129,18 +107,6 @@ document.addEventListener("DOMContentLoaded", function(){
             
         }
     });
-
-    /*let cid = localStorage.getItem('proID')*/
-   /* getJSONData(CART_INFO_URL + cid  +".json").then(function(resultObj){
-
-        if (resultObj.status === "ok")
-        {
-            productCarrito = resultObj.data.articles;;
-            showCart(productCarrito);
-            console.log(productCarrito)
-            
-        }
-    });*/
 
     let usuario = localStorage.getItem("name");
         if (usuario == null){
