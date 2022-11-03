@@ -1,11 +1,11 @@
 function login(){
-    let usuario = document.getElementById('username').value;
+    let email = document.getElementById('email').value;
     let clave = document.getElementById('clave').value;
     let nombre = document.getElementById('name').value;
 
-    if (usuario ===""  || clave ==="" || nombre ===""){
+    if (email ===""  || clave ==="" || nombre ===""){
         
-        document.getElementById("username").style.borderColor = "red";
+        document.getElementById("email").style.borderColor = "red";
         document.getElementById("clave").style.borderColor = "red";
         document.getElementById("name").style.borderColor = "red";
         document.getElementById("parrafo").innerHTML = "Ingrese su Nombre";
@@ -17,6 +17,7 @@ function login(){
 
     }else{
         localStorage.setItem('name',nombre);
+        localStorage.setItem('email',email);
         location.href="index.html";
         
     }

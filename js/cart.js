@@ -1,5 +1,5 @@
 
-function finalizarCompra(){ 
+function finalizarCompra(){ // si faltan datos avisa 
     
     cantidad = document.getElementById('count').value;
     calle = document.getElementById('input1').value;

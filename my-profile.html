@@ -61,11 +61,60 @@
     </div>
   </nav>
   <main>
+    <!--empieza perfil-->
     <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
-      </div>
-    </div>
+      <main>
+        <form method="post" class="row mt-4 needs-validation" id="myForm" novalidate>
+          <div class="col">
+            <h1 class="mb-3">Mi perfil</h1>
+            <hr class="my-4">
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="pnombre" name="nombre" required>
+                <div class="invalid-feedback">
+                  Debe ingresar un nombre.
+                </div>
+              </div>
+  
+              <div class="col-sm-6">
+                <label for="apellido" class="form-label">Segundo nombre</label>
+                <input type="text" class="form-control" id="snombre"  name="apellido" >
+                
+              </div>
+              <div class="col-sm-6">
+                <label for="nombre" class="form-label">Apellido</label>
+                <input type="text" class="form-control" id="papellido" name="nombre" required>
+                <div class="invalid-feedback">
+                  Debe ingresar un Apellido.
+                </div>
+              </div>
+  
+              <div class="col-sm-6">
+                <label for="apellido" class="form-label">Segundo apellido</label>
+                <input type="text" class="form-control" id="sapellido"  name="apellido" >
+                
+              </div>
+              <div class="col-sm-6">
+                <label for="nombre" class="form-label">Telefono</label>
+                <input type="number" class="form-control" id="Telefono" name="nombre">
+                
+              </div>
+  
+              <div class="col-sm-6">
+                <label for="apellido" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email"  name="apellido" required>
+                <div class="invalid-feedback">
+                  Debe ingresar un nombre.
+                </div>
+              </div>
+              
+              <button class="btn btn-primary" type="submit" id="regBtn">Registrarme</button>
+  
+  
+            </div>
+          </div>
+        </form>
   </main>
   <footer class="text-muted">
     <div class="container">
